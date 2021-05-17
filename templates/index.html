@@ -49,31 +49,33 @@
 				<div class="container">
 				<a class="toggleMenu" href="#">Menu</a>
 				<ul class="nav">
-					<li class="active"><a href="index.html" data-hover="Home">Home</a></li>
-					<li><a href="about.html" data-hover="About Us">楼凤</a></li>
-					<li><a href="careers.html" data-hover="Careers">...</a></li>
-					<li><a href="contact.html" data-hover="Contact Us">Contact Us</a></li>
-					<li><a href="404.html" data-hover="Company Profile">Company Profile</a></li>
-					<li><a href="register.html" data-hover="Company Registration">Company Registration</a></li>
-					<li><a href="wishlist.html" data-hover="Wish List">Wish List</a></li>
+					<li><a href="index.html" data-hover="Home">Home</a></li>
+					<!--<li class="active"><a href="index.html" data-hover="Home">Home</a></li>-->
+					<li><a href="#" data-hover="lf">{{types.lf}}</a></li>
+					<li><a href="#" data-hover="xy">{{types.xy}}</a></li>
+					<li><a href="#" data-hover="zy">{{types.zy}}</a></li>
+					<li><a href="#" data-hover="zj">{{types.zj}}</a></li>
+					<li><a href="#" data-hover="qq">{{types.qq}}</a></li>
+					<li><a href="#" data-hover="ktv">{{types.ktv}}</a></li>
+					<li><a href="#" data-hover="hd">{{types.hd}}</a></li>
 				</ul>
 				<script type="text/javascript" src="../static/js/nav.js"></script>
 				</div><!-- end h_menu4 -->
 			</div>
 		</div>
-		<div class="column_center">
-			<div class="container">
-				<div class="search">
-					<div class="stay">Search Product</div>
-					<div class="stay_right">
-						<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
-						<input type="submit" value="">
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
+		<!--<div class="column_center">-->
+			<!--<div class="container">-->
+				<!--<div class="search">-->
+					<!--<div class="stay">Search Product</div>-->
+					<!--<div class="stay_right">-->
+						<!--<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">-->
+						<!--<input type="submit" value="">-->
+					<!--</div>-->
+					<!--<div class="clearfix"> </div>-->
+				<!--</div>-->
+				<!--<div class="clearfix"> </div>-->
+			<!--</div>-->
+		<!--</div>-->
 		<div class="main">
 			<div class="content_top">
 				<div class="container">
@@ -169,6 +171,9 @@
 						</div>
 					</div> 
 					<div class="col-md-9 content_right">
+						<!--详情-->
+						<div>{{ types }}</div>
+						<div>{{ types.lf }}</div>
 						<div class="top_grid1">
 							<div class="col-md-4 box_2"></div>
 							<div class="col-md-8 box_1"></div>
