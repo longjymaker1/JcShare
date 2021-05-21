@@ -91,6 +91,13 @@
 											<!--<li class="subitem3"><a href="#">Automatic Fails </a></li>-->
 										<!--</ul>-->
 									<!--</li>-->
+									{% for pro in pros %}
+									<li class="item{{pro.id}}"><a href="#"><img class="arrow-img" src="../static/images/f_menu.png" alt="">{{pro.name}}</a>
+										<ul class="cute">
+											<li class="subitem1"><a href="#">市</a></li>
+										</ul>
+									</li>
+									{% endfor %}
 								</ul>
 							</div>
 							<!--initiate accordion-->
