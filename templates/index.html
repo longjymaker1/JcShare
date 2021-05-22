@@ -15,6 +15,7 @@
 		<!--webfont-->
 		<link href='http://fonts.useso.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 		<script type="text/javascript" src="../static/js/jquery-1.11.1.min.js"></script>
+		<script src="../static/js/static.js"></script>
 		<script src="../static/js/responsiveslides.min.js"></script>
 		<script>
 			$(function () {
@@ -92,7 +93,10 @@
 										<!--</ul>-->
 									<!--</li>-->
 									{% for pro in pros %}
-									<li class="item{{pro.id}}"><a href="#"><img class="arrow-img" src="../static/images/f_menu.png" alt="">{{pro.name}}</a>
+									<li class="item{{pro.id}}">
+										<a href="#" onclick="getCity({{pro.id}})">
+											<img class="arrow-img" src="../static/images/f_menu.png" alt="">{{pro.name}}
+										</a>
 										<ul class="cute">
 											<li class="subitem1"><a href="#">市</a></li>
 										</ul>
