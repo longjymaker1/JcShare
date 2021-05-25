@@ -88,17 +88,17 @@
 									<!--<li class="item1"><a href="#"><img class="arrow-img" src="../static/images/f_menu.png" alt=""/> Man</a>-->
 										<!--<ul class="cute">-->
 											<!--<li class="subitem1"><a href="#">Cute Kittens </a></li>-->
-											<!--<li class="subitem2"><a href="#">Strange Stuff </a></li>-->
-											<!--<li class="subitem3"><a href="#">Automatic Fails </a></li>-->
 										<!--</ul>-->
 									<!--</li>-->
-									{% for pro in pros %}
-									<li class="item{{pro.id}}">
-										<a href="#" onclick="getCity({{pro.id}})">
-											<img class="arrow-img" src="../static/images/f_menu.png" alt="">{{pro.name}}
+									{% for pro, pv in pros.items %}
+									<li class="item{{ pro }}">
+										<a href="#">
+											<img class="arrow-img" src="../static/images/f_menu.png" alt="">{{ pv.0 }}
 										</a>
 										<ul class="cute">
-											<li class="subitem1"><a href="#">市</a></li>
+                                            {% for c in pv.1 %}
+                                                <li class="subitem{{ c.0 }}"><a href="#">{{ c.1 }}</a></li>
+                                            {% endfor %}
 										</ul>
 									</li>
 									{% endfor %}
@@ -129,9 +129,6 @@
 						<!--详情-->
 						<div>{{ types }}</div>
 						<div>{{ types.lf }}</div>
-						{% for pro in pros %}
-						{{pro.id}} -- {{pro.name}}
-						{% endfor %}
 						<div class="top_grid1">
 							<div class="col-md-4 box_2"></div>
 							<div class="col-md-8 box_1"></div>

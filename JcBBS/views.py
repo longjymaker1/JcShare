@@ -11,7 +11,22 @@ def index(request, pro_id=None):
     if request.method == "GET":
         ats = dict(Articles_type.article_type)
         pros = Provinces.objects.all()
-        return render(request, "index.html", {'types': ats, 'pros': pros})
+        datas = {'types': ats, 'pros': {}}
+        for p in pros:
+            # print(p.id, p.name, p.is_ftc)
+            citis = Cities.objects.filter(province_id=p.id)
+            citis_list = []
+            if p.is_ftc == 0:
+                for c in citis:
+                    # print(c.name)
+                    citis_list.append((c.id, c.name))
+            else:
+                blocks = Block.objects.filter(city=citis[0].id)
+                for b in blocks:
+                    # print(b.name)
+                    citis_list.append((b.id, b.name))
+            datas['pros'][p.id] = [p.name, citis_list]
+        return render(request, "index.html", datas)
     if request.method == "POST":
         if pro_id is None:
             print(pro_id)

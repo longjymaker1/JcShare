@@ -8,6 +8,7 @@ class Provinces(models.Model):
     name = models.CharField(max_length=32, verbose_name="省份名称")
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
+    is_ftc = models.IntegerField(default=0)
 
 
 class Cities(models.Model):
@@ -16,6 +17,7 @@ class Cities(models.Model):
     province = models.ForeignKey(Provinces, on_delete=models.CASCADE)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
+    is_ftc = models.IntegerField(default=0)
 
 
 class Block(models.Model):
