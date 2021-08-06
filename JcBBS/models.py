@@ -60,7 +60,7 @@ class Articles(models.Model):
     like = models.PositiveIntegerField(default=0, blank=False, verbose_name="点赞数量")
     conllection = models.PositiveIntegerField(default=0, blank=False, verbose_name="收藏数量")
     look = models.PositiveIntegerField(default=0, blank=False, verbose_name="观看数量")
-    main_photo = models.ImageField(blank=True, upload_to='photo/')
+    main_photo = models.CharField(max_length=512, verbose_name="主图地址")
     buy_user_num = models.PositiveIntegerField(default=0, verbose_name="购买人数")
     buy_num = models.PositiveIntegerField(default=0, verbose_name="购买次数")
     create_time = models.DateTimeField(auto_now_add=True)
@@ -103,7 +103,7 @@ class Nymph_price(models.Model):
 
 class Nymph_photo(models.Model):
     """照片"""
-    pthoto_path = models.ImageField(blank=True, upload_to='photo/')
+    pthoto_path = models.CharField(max_length=512, blank=True, verbose_name="图片地址")
     article_msg = models.OneToOneField(Article_msg, on_delete=models.CASCADE)
     article_msg = models.OneToOneField(Article_msg, on_delete=models.CASCADE)
     create_time = models.DateTimeField(auto_now_add=True)
