@@ -10,6 +10,9 @@ class Provinces(models.Model):
     update_time = models.DateTimeField(auto_now=True)
     is_ftc = models.IntegerField(default=0)
 
+    class Meta:
+        verbose_name = '省份表'
+
 
 class Cities(models.Model):
     """城市表"""
@@ -19,6 +22,9 @@ class Cities(models.Model):
     update_time = models.DateTimeField(auto_now=True)
     is_ftc = models.IntegerField(default=0)
 
+    class Meta:
+        verbose_name = '城市表'
+
 
 class Block(models.Model):
     """城市街区"""
@@ -26,6 +32,9 @@ class Block(models.Model):
     city = models.ForeignKey(Cities, on_delete=models.CASCADE)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = '城市区'
 
 
 class Users(models.Model):
@@ -36,6 +45,9 @@ class Users(models.Model):
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
     jc_coin = models.PositiveIntegerField(verbose_name="用户虚拟币")
+
+    class Meta:
+        verbose_name = '用户表'
 
 
 class Articles_type(models.Model):
@@ -53,6 +65,9 @@ class Articles_type(models.Model):
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = '信息类型'
+
 
 class Articles(models.Model):
     """帖子主表"""
@@ -69,6 +84,9 @@ class Articles(models.Model):
     block = models.ForeignKey(Block, on_delete=models.CASCADE)
     article_type = models.ForeignKey(Articles_type, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name = '帖子主表'
+
 
 class Article_msg(models.Model):
     """帖子信息"""
@@ -83,6 +101,9 @@ class Article_msg(models.Model):
     article = models.OneToOneField(Articles, on_delete=models.CASCADE)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = '帖子信息表'
 
 
 class Nymph_price(models.Model):
@@ -100,6 +121,9 @@ class Nymph_price(models.Model):
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = '价格表'
+
 
 class Nymph_photo(models.Model):
     """照片"""
@@ -108,4 +132,7 @@ class Nymph_photo(models.Model):
     article_msg = models.OneToOneField(Article_msg, on_delete=models.CASCADE)
     create_time = models.DateTimeField(auto_now_add=True)
     create_time = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = '照片表'
 
