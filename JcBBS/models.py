@@ -6,35 +6,38 @@ from django.db import models
 class Provinces(models.Model):
     """省份表"""
     name = models.CharField(max_length=32, verbose_name="省份名称")
-    create_time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
     is_ftc = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = '省份表'
+        verbose_name_plural = verbose_name
 
 
 class Cities(models.Model):
     """城市表"""
     name = models.CharField(max_length=32, verbose_name="城市名称")
-    province = models.ForeignKey(Provinces, on_delete=models.CASCADE)
-    create_time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
+    province = models.ForeignKey(Provinces, on_delete=models.CASCADE, verbose_name='省份id')
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
     is_ftc = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = '城市表'
+        verbose_name_plural = verbose_name
 
 
 class Block(models.Model):
     """城市街区"""
-    name = models.CharField(max_length=32, verbose_name="城市名称")
-    city = models.ForeignKey(Cities, on_delete=models.CASCADE)
-    create_time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
+    name = models.CharField(max_length=32, verbose_name="城市-区")
+    city = models.ForeignKey(Cities, on_delete=models.CASCADE, verbose_name='城市id')
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
 
     class Meta:
         verbose_name = '城市区'
+        verbose_name_plural = verbose_name
 
 
 class Users(models.Model):
@@ -42,12 +45,13 @@ class Users(models.Model):
     name = models.CharField(max_length=64, verbose_name="用户名")
     email = models.EmailField(verbose_name="用户邮箱")
     passwd = models.CharField(max_length=128, verbose_name="用户密码")
-    create_time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
     jc_coin = models.PositiveIntegerField(verbose_name="用户虚拟币")
 
     class Meta:
         verbose_name = '用户表'
+        verbose_name_plural = verbose_name
 
 
 class Articles_type(models.Model):
@@ -62,11 +66,12 @@ class Articles_type(models.Model):
         (u'ktv', u'KTV'),
     )
     types = models.CharField(max_length=8, choices=article_type, verbose_name='类型')
-    create_time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
 
     class Meta:
         verbose_name = '信息类型'
+        verbose_name_plural = verbose_name
 
 
 class Articles(models.Model):
@@ -78,14 +83,15 @@ class Articles(models.Model):
     main_photo = models.CharField(max_length=512, verbose_name="主图地址")
     buy_user_num = models.PositiveIntegerField(default=0, verbose_name="购买人数")
     buy_num = models.PositiveIntegerField(default=0, verbose_name="购买次数")
-    create_time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    block = models.ForeignKey(Block, on_delete=models.CASCADE)
-    article_type = models.ForeignKey(Articles_type, on_delete=models.CASCADE)
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
+    user = models.ForeignKey(Users, on_delete=models.CASCADE, verbose_name='用户id')
+    block = models.ForeignKey(Block, on_delete=models.CASCADE, verbose_name='城市-区id')
+    article_type = models.ForeignKey(Articles_type, on_delete=models.CASCADE, verbose_name='帖子类型')
 
     class Meta:
         verbose_name = '帖子主表'
+        verbose_name_plural = verbose_name
 
 
 class Article_msg(models.Model):
@@ -98,12 +104,13 @@ class Article_msg(models.Model):
     contact = models.CharField(max_length=128, blank=False, verbose_name="联系方式")
     address = models.CharField(max_length=128, blank=False, verbose_name="地址")
     main_body = models.TextField(max_length=800, verbose_name="描述")
-    article = models.OneToOneField(Articles, on_delete=models.CASCADE)
-    create_time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
+    article = models.OneToOneField(Articles, on_delete=models.CASCADE, verbose_name='帖子id')
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
 
     class Meta:
         verbose_name = '帖子信息表'
+        verbose_name_plural = verbose_name
 
 
 class Nymph_price(models.Model):
@@ -117,22 +124,23 @@ class Nymph_price(models.Model):
     )
     types = models.CharField(max_length=8, choices=server_type, verbose_name='收费类型')
     price = models.FloatField(default=0, blank=False, verbose_name='价格')
-    article_msg = models.OneToOneField(Article_msg, on_delete=models.CASCADE)
-    create_time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
+    article_msg = models.OneToOneField(Article_msg, on_delete=models.CASCADE, verbose_name='帖子详情id')
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
 
     class Meta:
         verbose_name = '价格表'
+        verbose_name_plural = verbose_name
 
 
 class Nymph_photo(models.Model):
     """照片"""
     pthoto_path = models.CharField(max_length=512, blank=True, verbose_name="图片地址")
-    article_msg = models.OneToOneField(Article_msg, on_delete=models.CASCADE)
-    article_msg = models.OneToOneField(Article_msg, on_delete=models.CASCADE)
-    create_time = models.DateTimeField(auto_now_add=True)
-    create_time = models.DateTimeField(auto_now_add=True)
+    article_msg = models.OneToOneField(Article_msg, on_delete=models.CASCADE, verbose_name='帖子详情id')
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now_add=True, verbose_name='修改时间')
 
     class Meta:
         verbose_name = '照片表'
+        verbose_name_plural = verbose_name
 
