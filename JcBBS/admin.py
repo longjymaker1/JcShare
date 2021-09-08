@@ -32,7 +32,7 @@ class ArticlesType(admin.ModelAdmin):
 class Article(admin.ModelAdmin):
     list_per_page = 30
     list_display = ('title', 'like', 'conllection', 'look',
-                    'main_photo', 'buy_user_num', 'buy_num', 'user',
+                    'buy_user_num', 'buy_num', 'user',
                     'block', 'article_type', 'create_time', 'update_time')
 
 
