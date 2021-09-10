@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Provinces, Cities, Block, Users,\
     Articles_type, Articles, Article_msg
 from django.views.decorators.csrf import csrf_protect
+from django.db import connection
 import json
 
 
@@ -26,6 +27,8 @@ def index(request, pro_id=None):
                     # print(b.name)
                     citis_list.append((b.id, b.name))
             datas['pros'][p.id] = [p.name, citis_list]
+        girls_data = get_index_data()
+        datas['girls'] = girls_data
         return render(request, "index.html", datas)
     if request.method == "POST":
         if pro_id is None:
@@ -34,3 +37,13 @@ def index(request, pro_id=None):
             raise print("pro_id为空")
 
 
+def get_index_data():
+    cursor = connection.cursor()
+    sqlmsg = """
+    select id, title, `like`, conllection, look, main_photo, 
+           buy_user_num, buy_num, create_time, update_time, 
+           article_type_id, block_id, user_id
+    from jcbbs_articles
+    """
+    cursor.execute(sqlmsg)
+    return cursor.fetchall()
