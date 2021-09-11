@@ -40,10 +40,14 @@ def index(request, pro_id=None):
 def get_index_data():
     cursor = connection.cursor()
     sqlmsg = """
-    select id, title, `like`, conllection, look, main_photo, 
-           buy_user_num, buy_num, create_time, update_time, 
-           article_type_id, block_id, user_id
-    from jcbbs_articles
+        select art.id, art.title, art.`like`, art.conllection, art.look, art.main_photo,
+               art.buy_user_num, art.buy_num, art.create_time, art.user_id,
+               jnp.types, jnp.price
+        from jcbbs_articles as art
+        left join jcbbs_article_msg as artm
+            on art.id = artm.article_id
+        left join jcbbs_nymph_price jnp
+            on artm.id = jnp.article_msg_id
     """
     cursor.execute(sqlmsg)
     return cursor.fetchall()

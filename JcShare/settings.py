@@ -125,6 +125,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = "/media/"
 
 import os
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -136,6 +137,7 @@ STATICFILES_DIRS = [
     ('js', os.path.join(STATIC_ROOT, 'js').replace('\\', '/')),
     ('images', os.path.join(STATIC_ROOT, 'images').replace('\\', '/')),
     ('upload', os.path.join(STATIC_ROOT, 'upload').replace('\\', '/')),
+    ('photo', os.path.join(MEDIA_ROOT, 'photo').replace('\\', '/'))
 
 ]
 
