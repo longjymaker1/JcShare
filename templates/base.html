@@ -8,11 +8,7 @@
 		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css' />
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<!-- Custom Theme files -->
 		<link href="../static/css/style.css" rel='stylesheet' type='text/css' />
-		<!-- Custom Theme files -->
-		<!--webfont-->
 		<link href='http://fonts.useso.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 		<script type="text/javascript" src="../static/js/jquery-1.11.1.min.js"></script>
 		<script src="../static/js/static.js"></script>
@@ -48,37 +44,23 @@
 					<div class="clearfix"> </div>
 				</div>
 			</div>
-			<div class="h_menu4"><!-- start h_menu4 -->
+			<div class="h_menu4">
 				<div class="container">
 				<a class="toggleMenu" href="#">Menu</a>
 				<ul class="nav">
 					<li><a href="index.html" data-hover="Home">Home</a></li>
-					<!--<li class="active"><a href="index.html" data-hover="Home">Home</a></li>-->
-					<li><a href="#" data-hover="lf">{{types.lf}}</a></li>
-					<li><a href="#" data-hover="xy">{{types.xy}}</a></li>
-					<li><a href="#" data-hover="zy">{{types.zy}}</a></li>
-					<li><a href="#" data-hover="zj">{{types.zj}}</a></li>
-					<li><a href="#" data-hover="qq">{{types.qq}}</a></li>
-					<li><a href="#" data-hover="ktv">{{types.ktv}}</a></li>
-					<li><a href="#" data-hover="hd">{{types.hd}}</a></li>
+					<li><a href="#" data-hover="lf" id="lf">{{types.lf}}</a></li>
+					<li><a href="#" data-hover="xy" id="xy}">{{types.xy}}</a></li>
+					<li><a href="#" data-hover="zy" id="zy">{{types.zy}}</a></li>
+					<li><a href="#" data-hover="zj" id="zj">{{types.zj}}</a></li>
+					<li><a href="#" data-hover="qq" id="qq">{{types.qq}}</a></li>
+					<li><a href="#" data-hover="ktv" id="ktv">{{types.ktv}}</a></li>
+					<li><a href="#" data-hover="hd" id="hd}">{{types.hd}}</a></li>
 				</ul>
 				<script type="text/javascript" src="../static/js/nav.js"></script>
-				</div><!-- end h_menu4 -->
+				</div>
 			</div>
 		</div>
-		<!--<div class="column_center">-->
-			<!--<div class="container">-->
-				<!--<div class="search">-->
-					<!--<div class="stay">Search Product</div>-->
-					<!--<div class="stay_right">-->
-						<!--<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">-->
-						<!--<input type="submit" value="">-->
-					<!--</div>-->
-					<!--<div class="clearfix"> </div>-->
-				<!--</div>-->
-				<!--<div class="clearfix"> </div>-->
-			<!--</div>-->
-		<!--</div>-->
 		<div class="main">
 			<div class="content_top">
 				<div class="container">
@@ -87,11 +69,6 @@
 							<div class="menu_box">
 								<h3 class="menu_head">地区</h3>
 								<ul class="menu">
-									<!--<li class="item1"><a href="#"><img class="arrow-img" src="../static/images/f_menu.png" alt=""/> Man</a>-->
-										<!--<ul class="cute">-->
-											<!--<li class="subitem1"><a href="#">Cute Kittens </a></li>-->
-										<!--</ul>-->
-									<!--</li>-->
 									{% for pro, pv in pros.items %}
 									<li class="item{{ pro }}">
 										<a href="#">
@@ -129,20 +106,6 @@
 					</div> 
 					{% block container %}
 					{% endblock container %}
-					<!--<div class="col-md-9 content_right">-->
-						<!--详情-->
-						<!--<div>{{ types }}</div>-->
-						<!--<div>{{ types.lf }}</div>-->
-						<!--<div class="top_grid1">-->
-							<!--<div class="col-md-4 box_2"></div>-->
-							<!--<div class="col-md-8 box_1"></div>-->
-							<!--<div class="clearfix"> </div>-->
-						<!--</div> -->
-						<!--<div class="top_grid2"></div> -->
-						<!--<div class="top_grid2"></div> -->
-						<!--<div class="top_grid2"></div> -->
-						<!--<div class="top_grid2"></div> -->
-					<!--</div>-->
 				</div>  	    
 			</div>
 		</div>
