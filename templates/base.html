@@ -48,14 +48,14 @@
 				<div class="container">
 				<a class="toggleMenu" href="#">Menu</a>
 				<ul class="nav">
-					<li><a href="index.html" data-hover="Home">Home</a></li>
-					<li><a href="#" data-hover="lf" id="lf">{{types.lf}}</a></li>
-					<li><a href="#" data-hover="xy" id="xy}">{{types.xy}}</a></li>
-					<li><a href="#" data-hover="zy" id="zy">{{types.zy}}</a></li>
-					<li><a href="#" data-hover="zj" id="zj">{{types.zj}}</a></li>
-					<li><a href="#" data-hover="qq" id="qq">{{types.qq}}</a></li>
-					<li><a href="#" data-hover="ktv" id="ktv">{{types.ktv}}</a></li>
-					<li><a href="#" data-hover="hd" id="hd}">{{types.hd}}</a></li>
+					<li><a href="/" data-hover="Home">Home</a></li>
+					<li><a href="#" data-hover="lf" id="lf" onclick="select_list()">{{types.lf}}</a></li>
+					<li><a href="#" data-hover="xy" id="xy" onclick="select_list()">{{types.xy}}</a></li>
+					<li><a href="#" data-hover="zy" id="zy" onclick="select_list()">{{types.zy}}</a></li>
+					<li><a href="#" data-hover="zj" id="zj" onclick="select_list()">{{types.zj}}</a></li>
+					<li><a href="#" data-hover="qq" id="qq" onclick="select_list()">{{types.qq}}</a></li>
+					<li><a href="#" data-hover="ktv" id="ktv" onclick="select_list()">{{types.ktv}}</a></li>
+					<li><a href="#" data-hover="hd" id="hd" onclick="select_list()">{{types.hd}}</a></li>
 				</ul>
 				<script type="text/javascript" src="../static/js/nav.js"></script>
 				</div>
@@ -76,7 +76,7 @@
 										</a>
 										<ul class="cute">
                                             {% for c in pv.1 %}
-                                                <li class="subitem{{ c.0 }}"><a href="#">{{ c.1 }}</a></li>
+                                                <li class="subitem{{ c.0 }} active"><a href="#">{{ c.1 }}</a></li>
                                             {% endfor %}
 										</ul>
 									</li>
@@ -110,6 +110,8 @@
 			</div>
 		</div>
 		<div class="footer_bg"> </div>
+
+        <script src="../static/js/article_list.js"></script>
 		{% block footer %}
 		{% endblock footer %}
 	</body>
