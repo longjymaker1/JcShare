@@ -1,5 +1,5 @@
 
 
 function select_list() {
-    addClass('active');
+    // $('types').addClass('active');
 }
